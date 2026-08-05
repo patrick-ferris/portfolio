@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrick Ferris — Mechanical Engineer &amp; MBA</title>
+<meta name="description" content="Patrick Ferris — Mechanical Engineer with an MBA/MS in Analytics. Systems engineering, product strategy, and operations leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F5F1;
+    --paper-raised:#FBFBF9;
+    --ink:#1C2330;
+    --graphite:#5B6472;
+    --line:#D7DCE1;
+    --line-strong:#B7C0C8;
+    --accent:#C1440E;
+    --accent-soft:#F1DFD2;
+    --accent-ink:#7A2C09;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 64px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Serif', Georgia, serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.mono,nav,.tag,.dateline,.eyebrow{font-family:'Space Grotesk', sans-serif;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  a{color:inherit;}
+
+  ::selection{background:var(--accent-soft); color:var(--accent-ink);}
+
+  /* ---------- layout helpers ---------- */
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  section{padding:96px 0;}
+  @media (max-width:720px){ section{padding:64px 0;} .wrap{padding:0 22px;} }
+
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    margin:0 0 14px 0;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--accent);
+    display:inline-block;
+  }
+
+  h2.section-title{
+    font-size:clamp(26px,3.4vw,34px);
+    font-weight:600;
+    margin:0 0 40px 0;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- nav ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,245,241,0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    max-width:var(--maxw); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  @media (max-width:720px){ .navbar{padding:14px 22px;} }
+  .mark{
+    display:flex; align-items:center; gap:10px;
+    font-weight:600; font-size:15px; letter-spacing:.02em;
+  }
+  .mark .box{
+    width:28px; height:28px; border:1.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
+    position:relative;
+  }
+  .navlinks{display:flex; gap:28px; font-size:14px;}
+  .navlinks a{text-decoration:none; color:var(--graphite); position:relative; padding:2px 0;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr 1fr; gap:56px; align-items:center;
+    padding-top:64px; padding-bottom:40px;
+  }
+  @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr; padding-top:40px;} }
+
+  .hero h1{
+    font-size:clamp(36px, 5vw, 58px);
+    line-height:1.06;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 22px 0;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero p.lede{
+    font-size:18px; color:var(--graphite); max-width:46ch; margin:0 0 30px 0;
+  }
+  .hero .ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    padding:12px 20px; border-radius:2px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--accent-ink); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line-strong); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink); transform:translateY(-1px);}
+
+  /* ---------- signature diagram: engineering shaft/timeline ---------- */
+  .diagram-frame{
+    position:relative;
+  }
+  .diagram-frame svg{width:100%; height:auto; display:block;}
+  .diagram-caption{
+    margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    color:var(--graphite); letter-spacing:.04em; text-align:center;
+  }
+
+  /* ---------- corner ticks (signature motif for cards) ---------- */
+  .tick-card{
+    position:relative;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    padding:30px 32px;
+  }
+  .tick-card::before, .tick-card::after{
+    content:""; position:absolute; width:11px; height:11px;
+    border-top:1.5px solid var(--accent); border-left:1.5px solid var(--accent);
+  }
+  .tick-card::before{top:-1px; left:-1px;}
+  .tick-card::after{bottom:-1px; right:-1px; border-top:none; border-left:none;
+    border-bottom:1.5px solid var(--accent); border-right:1.5px solid var(--accent);}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:48px;}
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--ink); font-size:16.5px;}
+  .stat-list{display:flex; flex-direction:column; gap:0;}
+  .stat{
+    padding:16px 0; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  }
+  .stat:first-child{border-top:1px solid var(--line);}
+  .stat .num{font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:14px;}
+  .stat .label{font-family:'Space Grotesk',sans-serif; font-size:13.5px; color:var(--graphite); text-align:right;}
+
+  /* ---------- experience ---------- */
+  .exp-card{margin-bottom:22px;}
+  .exp-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    flex-wrap:wrap; margin-bottom:6px;
+  }
+  .exp-role{font-size:20px; font-weight:600; margin:0;}
+  .exp-co{color:var(--graphite); font-style:italic; font-size:15px; margin:2px 0 16px 0;}
+  .dateline{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--accent-ink);
+    background:var(--accent-soft); padding:5px 10px; white-space:nowrap;
+  }
+  .exp-loc{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--graphite);}
+  ul.bullets{margin:0; padding:0; list-style:none;}
+  ul.bullets li{
+    position:relative; padding-left:20px; margin-bottom:11px; font-size:15.5px; color:var(--ink);
+  }
+  ul.bullets li::before{
+    content:"—"; position:absolute; left:0; color:var(--accent); font-family:'IBM Plex Mono',monospace;
+  }
+  ul.bullets li:last-child{margin-bottom:0;}
+
+  /* ---------- education / leadership ---------- */
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  @media (max-width:760px){ .twocol{grid-template-columns:1fr;} }
+  .edu-card h3{margin:0 0 4px 0; font-size:17px; font-weight:600;}
+  .edu-card .school{color:var(--graphite); font-style:italic; font-size:14.5px; margin-bottom:10px;}
+  .edu-card .dateline{margin-top:10px; display:inline-block;}
+
+  /* ---------- skills ---------- */
+  .skill-group{margin-bottom:28px;}
+  .skill-group h3{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--graphite); margin:0 0 14px 0; font-weight:500;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:500;
+    padding:8px 14px; border:1px solid var(--line-strong);
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .chip:hover{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:56px 0 48px 0;
+  }
+  .footer-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;}
+  footer h2{font-size:26px; margin:0 0 8px 0; font-weight:600;}
+  .footer-links{display:flex; gap:22px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:13.5px;}
+  .footer-links a{text-decoration:none; border-bottom:1px solid var(--line-strong); padding-bottom:2px;}
+  .footer-links a:hover{border-color:var(--accent); color:var(--accent-ink);}
+  .footer-note{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--graphite); margin-top:36px;}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="navbar">
+    <div class="mark"><span class="box">PF</span> Patrick Ferris</div>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Mechanical Engineer · MBA / MS Analytics</p>
+      <h1>Trained to build things that don't fail.<br>Then trained to <em>lead</em> the teams that build them.</h1>
+      <p class="lede">Five years engineering safety-critical brake systems for Level 2 and Level 4 autonomous vehicle programs, followed by an MBA and MS in Analytics from CU Boulder — now working at the intersection of technical execution and strategic leadership.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#experience">See the work</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="diagram-frame" aria-hidden="true">
+      <svg viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg">
+        <!-- centerline (drafting dash-dot) -->
+        <line x1="70" y1="20" x2="70" y2="440" stroke="#B7C0C8" stroke-width="1" stroke-dasharray="10 4 2 4"/>
+        <!-- ticks along shaft -->
+        <g stroke="#1C2330" stroke-width="1.4">
+          <line x1="60" y1="50" x2="80" y2="50"/>
+          <line x1="60" y1="150" x2="80" y2="150"/>
+          <line x1="60" y1="250" x2="80" y2="250"/>
+          <line x1="60" y1="340" x2="80" y2="340"/>
+          <line x1="60" y1="415" x2="80" y2="415"/>
+        </g>
+        <!-- nodes -->
+        <circle cx="70" cy="50" r="4.5" fill="#C1440E"/>
+        <circle cx="70" cy="150" r="4.5" fill="#1C2330"/>
+        <circle cx="70" cy="250" r="4.5" fill="#1C2330"/>
+        <circle cx="70" cy="340" r="4.5" fill="#1C2330"/>
+        <circle cx="70" cy="415" r="4.5" fill="#C1440E"/>
+        <!-- leader lines -->
+        <g stroke="#B7C0C8" stroke-width="1">
+          <line x1="80" y1="50" x2="120" y2="50"/>
+          <line x1="80" y1="150" x2="120" y2="150"/>
+          <line x1="80" y1="250" x2="120" y2="250"/>
+          <line x1="80" y1="340" x2="120" y2="340"/>
+          <line x1="80" y1="415" x2="120" y2="415"/>
+        </g>
+        <!-- labels -->
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#1C2330">
+          <text x="125" y="40">B.S. MECHANICAL ENGINEERING</text>
+          <text x="125" y="54" fill="#5B6472">Univ. of Michigan · 2018</text>
+
+          <text x="125" y="140">OPERATIONS MGMT DEV. PROGRAM</text>
+          <text x="125" y="154" fill="#5B6472">Navistar · 2018–2020</text>
+
+          <text x="125" y="240">SR. ENGINEER, BRAKE SYSTEMS</text>
+          <text x="125" y="254" fill="#5B6472">Navistar · 2020–2023</text>
+
+          <text x="125" y="330">MBA + MS ANALYTICS, SUMMA CUM LAUDE</text>
+          <text x="125" y="344" fill="#5B6472">CU Boulder · 2025</text>
+
+          <text x="125" y="405">STRATEGIC CLIENT PARTNER</text>
+          <text x="125" y="419" fill="#5B6472">Infosys · 2025–Present</text>
+        </g>
+      </svg>
+      <p class="diagram-caption">CAREER TIMELINE — REV. 2026</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <div class="about-grid reveal">
+      <p>
+        I started as a mechanical engineer validating brake systems for autonomous heavy vehicles — work where a design error isn't an inconvenience, it's a failure mode with real consequences. That discipline, writing and executing Design Verification Plans, chasing first-pass accuracy, tuning systems until they perform exactly as specified, still shapes how I approach problems.
+      </p>
+      <p>
+        An MBA and MS in Analytics from the University of Colorado Boulder (summa cum laude) added the other half: reading a business the way I used to read a schematic. Today I sit between those two worlds, leading client and technology engagements while looking for my way back to running engineering teams directly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="tick-card exp-card reveal">
+      <div class="exp-top">
+        <div>
+          <h3 class="exp-role">Strategic Client Partner</h3>
+          <p class="exp-co">Infosys, Limited · Denver, CO</p>
+        </div>
+        <span class="dateline">JUN 2025 — PRESENT</span>
+      </div>
+      <ul class="bullets">
+        <li>Own client strategy and relationship for a Credit Union client, leading SOW extensions and engagement planning that delivered $55K in net-new revenue.</li>
+        <li>Led stakeholder management and operational transition for a Mortgage client through an acquisition, maintaining continuity while closing a $60K SOW extension and a new Master Services Agreement.</li>
+        <li>Provide engagement operations leadership for a major Mortgage client, overseeing delivery of two AI-driven transformation initiatives ($290K) spanning technology, process, and business teams.</li>
+      </ul>
+    </div>
+
+    <div class="tick-card exp-card reveal">
+      <div class="exp-top">
+        <div>
+          <h3 class="exp-role">Senior Engineer, Brake Systems</h3>
+          <p class="exp-co">Navistar Inc. (now International Motors) · Lisle, IL</p>
+        </div>
+        <span class="dateline">JUL 2020 — JUL 2023</span>
+      </div>
+      <ul class="bullets">
+        <li>Led product strategy and systems engineering for brake systems supporting Level 2 and Level 4 autonomous vehicle programs, delivering 100% first-pass order coding accuracy.</li>
+        <li>Authored and executed Design Verification Plans & Reports (DVP&R) to validate regulatory, safety-critical, and quality compliance across the full product development lifecycle.</li>
+        <li>Directed testing and validation of vehicle brake tuning parameters to optimize braking performance and feel.</li>
+      </ul>
+    </div>
+
+    <div class="tick-card exp-card reveal">
+      <div class="exp-top">
+        <div>
+          <h3 class="exp-role">Operations Management Development Program</h3>
+          <p class="exp-co">Navistar Inc. (now International Motors) · Lisle, IL</p>
+        </div>
+        <span class="dateline">JUN 2018 — JUL 2020</span>
+      </div>
+      <ul class="bullets">
+        <li>Selected for a competitive two-year leadership program with cross-functional rotations spanning engineering, procurement, manufacturing, and supply chain operations.</li>
+        <li>Drove operational improvements that delivered $500K in annual cost savings on $2.5M spend through strategic sourcing initiatives and new production facility readiness.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2 class="section-title">Education</h2>
+    <div class="twocol">
+      <div class="tick-card edu-card reveal">
+        <h3>Master of Business Administration &amp; MS in Analytics</h3>
+        <p class="school">University of Colorado Boulder · <em>summa cum laude</em></p>
+        <span class="dateline">AUG 2023 — MAY 2025</span>
+      </div>
+      <div class="tick-card edu-card reveal">
+        <h3>B.S. Mechanical Engineering</h3>
+        <p class="school">University of Michigan, Ann Arbor · <em>cum laude</em></p>
+        <span class="dateline">AUG 2013 — APR 2018</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <h2 class="section-title">Leadership &amp; Activities</h2>
+    <div class="twocol">
+      <div class="tick-card edu-card reveal">
+        <h3>President, Social Impact Consulting Club</h3>
+        <p class="school">University of Colorado Boulder</p>
+        <ul class="bullets">
+          <li>Led a student consulting organization delivering pro-bono strategy and operations consulting to mission-driven organizations, overseeing engagement planning and project execution.</li>
+        </ul>
+        <span class="dateline">AUG 2024 — MAY 2025</span>
+      </div>
+      <div class="tick-card edu-card reveal">
+        <h3>President, Data Analytics Club</h3>
+        <p class="school">University of Colorado Boulder</p>
+        <ul class="bullets">
+          <li>Led initiatives promoting applied analytics and data-driven problem solving in partnership with local industry.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">Skills</h2>
+    <div class="skill-group reveal">
+      <h3>Technical</h3>
+      <div class="chips">
+        <span class="chip">R</span>
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Microsoft Excel</span>
+        <span class="chip">Data Analytics</span>
+        <span class="chip">Agile Product Management</span>
+        <span class="chip">Technical Project Management</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3>Business</h3>
+      <div class="chips">
+        <span class="chip">Go-to-Market</span>
+        <span class="chip">Client Advisory</span>
+        <span class="chip">Consulting</span>
+        <span class="chip">Stakeholder Management</span>
+        <span class="chip">Digital Transformation</span>
+        <span class="chip">Strategy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p style="color:var(--graphite); max-width:40ch; margin:0;">Open to conversations about engineering leadership, technical program management, and roles where both halves of this background matter.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:ferris.8.patrick@gmail.com">ferris.8.patrick@gmail.com</a>
+        <a href="tel:+16165023880">(616) 502-3880</a>
+        <a href="https://www.linkedin.com/in/patrick-j-ferris/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <p class="footer-note">ARVADA, CO — © 2026 PATRICK FERRIS</p>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  } else {
+    els.forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
